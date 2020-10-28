@@ -123,9 +123,16 @@ for(let n=0;n<data.length;n++){
     // Population density
 
     if(lo==data[4]){
-        let cereale = await affichage.split(':');
-        let cerealekiller = cereale[1].split(' ');
-        cooper = cerealekiller[0].replace(/\s/g, '');
+
+        let numberPattern = /\d+/g;
+        let regex = /[,\s]/g;
+
+        let cereale = await affichage;
+        let cerealekiller= await cereale.replace(regex,'');
+        cerealekiller = cerealekiller.match(numberPattern);
+        cooper=cerealekiller[0];
+
+        
         
         }
 
@@ -287,7 +294,7 @@ for(let n=0;n<data.length;n++){
 
       TotalLandAreainKm2:Number(petitponey[0].replace(",",".")),
 
-      PopulationDensityPerKm2:Number(cooper.replace(",",".")),
+      PopulationDensityPerKm2:Number(cooper),
 
       GrossPrefecturalProductinMillionYen: Number(jamtresbon[0].replace(",",".")),
 
@@ -325,9 +332,19 @@ for(let n=0;n<data.length;n++){
 
      await browser.close();
 
-     console.log(JSON.stringify(json,null,2));
+     // Write the data to JSON File
 
-     console.log("File written !");
+     let content = JSON.stringify(json,null,2);
+
+     fs.writeFile("prefectures.json", content, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("File written !");
+    }); 
+
+     console.log(content);
+
 })();
 
 
