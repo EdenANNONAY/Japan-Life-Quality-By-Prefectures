@@ -4,6 +4,7 @@
 
 This is a web-scrapping bot that uses puppeteer JS to scrape data about life quality by prefectures in Japan 🇯🇵☺️ <br>
 Everything is then stored in JSON file so that you can easily use it in any code or software that you want. <br>
+Here is a [web app](https://nihonlifequality.web.app/) I made with this bot ranking each prefecture's quality of life.<br>
 Who know maybe you will find in which prefecture you want to move in !
 
 ![Japan !!](https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)
